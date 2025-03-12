@@ -1,0 +1,28 @@
+<mat-card>
+  <img
+    [src]="
+      city.imgURL ||
+      'https://dummyimage.com/200x300/ccc/000.png&text=No+City+Image'
+    "
+    alt="{{ city.name }}"
+  />
+  <mat-card-header>
+    <mat-card-title>{{ city.name }} ({{ city.country }})</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Continent: {{ city.continent }}</p>
+    <p>Population: {{ city.population | number }}</p>
+    <p>Founded: {{ city.founded }}</p>
+    <div *ngIf="city.landmarks && city?.landmarks.length > 0">
+      <h3>Landmarks:</h3>
+      <ul>
+        <li *ngFor="let landmark of city?.landmarks">{{ landmark }}</li>
+      </ul>
+    </div>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="onViewOnMap()">
+        View on Map
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,16 @@
+<nav>
+  <h1 class="title">Cities Dashboard</h1>
+  <mat-button-toggle-group
+    [(value)]="viewMode"
+    (change)="onToggleChange($event.value)"
+    name="fontStyle"
+    aria-label="Font Style"
+  >
+    <mat-button-toggle class="toggle-button" value="card"
+      >Card View</mat-button-toggle
+    >
+    <mat-button-toggle class="toggle-button" value="table"
+      >Table View</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+</nav>
