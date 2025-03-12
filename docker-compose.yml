@@ -1,0 +1,43 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongodb-nest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+  
+  # NestJS Backend Service (Development)
+  city-backend:
+    build: ./city-backend
+    container_name: city-backend
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongodb-nest:27017
+    depends_on:
+      - mongo
+    ports:
+      - "4000:4000"
+    networks:
+      - my-network
+
+  # Angular Frontend Service (Development)
+  city-frontend:
+    build: ./city-frontend
+    container_name: city-frontend
+    ports:
+      - "4200:80"     # Expose Angular frontend on port 4200
+    networks:
+      - my-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  my-network:
+    driver: bridge
