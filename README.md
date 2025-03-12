@@ -1,7 +1,7 @@
 # cities-app
-Web app to display cities data in 2 different views
+Web app to display cities data in 2 different views: Card View & Table View
 
-This project is a Dockerized full-stack application consisting of a Cities API (backend) and Cities UI (frontend). The backend is built using NestJS and the frontend is built using Angular.
+This project is a Dockerized full-stack application consisting of a City Backend (backend) and City Frontend (frontend). The backend is built using NestJS and the frontend is built using Angular.
 
 This README will guide you through the setup and running of the application on your local machine using Docker and Docker Compose.
 
@@ -33,7 +33,6 @@ This will:
 ## Step 3: View the Application
 - Frontend (City Frontend): Open a web browser and go to http://localhost:4200. You should see the city data page.
 - Backend (City Backend): The API will be available at http://localhost:4000. You can interact with the backend (e.g., /api/cities/search endpoints).
-- Run tests: ```docker-compose exec movies-api npm run test```
 ## Step 4: Stopping the application
 When you're done, you can stop all running services with:
 
