@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- Search & Filter -->
+  <div class="toolbar">
+    <mat-form-field class="input-style" appearance="outline">
+      <mat-label>Search City By Name, Country, Continent</mat-label>
+      <input
+        matInput
+        (input)="applyFilter($any($event.target).value)"
+        placeholder="Type to search..."
+      />
+    </mat-form-field>
+  </div>
+
+  <!-- Table View -->
+  <div *ngIf="viewMode === 'table'">
+    <app-city-table [cities]="filteredCities"></app-city-table>
+  </div>
+
+  <!-- Card View -->
+  <div *ngIf="viewMode === 'card'">
+    <div class="card-container">
+      @for (city of filteredCities; track city.name) {
+      <app-city-card [city]="city"></app-city-card>
+      }
+    </div>
+  </div>
+
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="totalCities"
+      [pageSize]="paginationService.pageSize$ | async"
+      [pageIndex]="paginationService.currentPage$ | async"
+      [pageSizeOptions]="[5, 10, 15]"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

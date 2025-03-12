@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+}
+
+mat-paginator {
+  margin-top: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+  
+tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+a.mat-button {
+  text-transform: none;
+  font-weight: bold;
+}
+
+.table-header {
+  font-weight: bold !important;
+}
+  
