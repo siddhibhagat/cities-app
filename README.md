@@ -27,27 +27,46 @@ cd cities-app
 ```
 docker-compose up --build
 ```
-
 This will:
 - Build the Docker images for the city-backend and city-frontend services.
 - Start the containers for city-backend and city-frontend and mongodb.
-## Step 4: View the Application
-- Frontend (City UI): Open a web browser and go to http://localhost:3000. You should see the city data page.
-- Backend (City Backend): The API will be available at http://localhost:4000. You can interact with the backend (e.g., /cities endpoints).
+## Step 3: View the Application
+- Frontend (City Frontend): Open a web browser and go to http://localhost:4200. You should see the city data page.
+- Backend (City Backend): The API will be available at http://localhost:4000. You can interact with the backend (e.g., /api/cities/search endpoints).
 - Run tests: ```docker-compose exec movies-api npm run test```
-## Step 5: Stopping the application
+## Step 4: Stopping the application
 When you're done, you can stop all running services with:
 
 ```
 docker-compose down
 ```
+
+# Running Test Locally
+Inside Frontend Application:
+```
+cd city-frontend
+npm run test
+```
+Inside Backend Application:
+```
+cd city-backend
+npm run test:watch
+```
+
+```
+npm run test:e2e  #For end-to-end testing
+```
 # Architecture Design Decisions
-This project is designed with a microservices-based architecture in mind. However, to make the initial setup simpler, we have chosen to structure the project as a monorepo. This approach allows us to keep both the frontend (City UI) and backend (City API) in the same repository while still maintaining a separation of concerns.
+This project is designed with a microservices-based architecture in mind. However, to make the initial setup simpler, we have chosen to structure the project as a monorepo. This approach allows us to keep both the frontend (City Frontend) and backend (City Backend) in the same repository while still maintaining a separation of concerns.
 
 ### Frontend (UI):
 
-The frontend is built with Angular and serves as the user interface for searching movies.
-It communicates with the backend via HTTP requests to the RESTful API.
+- The frontend is built with Angular and serves as the user interface for dislaying and searching movies.
+- It provides 2 different views: card view and table view.
+- Table view involves sorting of data on fields like name, country, continent, opulation and founded.
+- You can also have a view on google maps for the individual cities.
+- For each city we are dislaying wikipedia image for the card view.
+- It communicates with the backend via HTTP requests to the RESTful API.
 ### Backend (API):
 
 The backend is built with NestJS to handle API requests related to movie data.
@@ -68,7 +87,7 @@ API Endpoints:
   
   Empty term string gives complete cities result with pagination
   
-- POST /api/cities/insertData
+- POST /api/cities/insert
   
   If I want to manually insert the data from backend. Inserts data in MongoDB.
 
