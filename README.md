@@ -1,5 +1,10 @@
 # cities-app
 Web app to display cities data in 2 different views: Card View & Table View
+![city_frontend_card_view](https://github.com/user-attachments/assets/cfe7a3d1-8c9d-4465-8466-04abceccd3f5)
+Card View
+
+![city_frontend_table_view](https://github.com/user-attachments/assets/4744ec0e-3990-4797-84ae-3ec2dea2fb60)
+Table View
 
 This project is a Dockerized full-stack application consisting of a City Backend (backend) and City Frontend (frontend). The backend is built using NestJS and the frontend is built using Angular.
 
@@ -78,8 +83,7 @@ MongoDB is used to store movie data as it provides a flexible schema for data th
 Docker and docker-compose are used to containerize the entire application, allowing easy setup, scaling, and management of the different services.
 
 # Architecture Diagram
-![cities_architechture drawio](https://github.com/user-attachments/assets/0e044972-7c81-46de-922c-b6d3f6c07ff1)
-
+![cities_architechture_diagram drawio](https://github.com/user-attachments/assets/af51de23-7ae1-4427-8644-4ec065743521)
 
 API Endpoints:
 - GET /api/cities/search?page=1&limit=10&term=
